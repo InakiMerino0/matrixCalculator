@@ -3,9 +3,8 @@ import java.util.Scanner;
 
 public class MatrixFunctions {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         //Variables generales
-        boolean square = false;
+        Scanner scanner = new Scanner(System.in);
         int rows = 0, cols = 0;
 
         System.out.println("Ingrese cuantas filas y columnas tendra la matriz con la que desea operar\n, teniendo un limite de orden 3, pueden no ser cuadradas,\n pero las operaciones se restringiran respectivamente.");
@@ -26,11 +25,86 @@ public class MatrixFunctions {
         if ((rows > 0) && (cols > 0) && (rows < 4) && (cols < 4)) {
             if (rows == cols) {
                 System.out.println("La matriz ingresada es cuadrada");
-                square = true;
+                Square(rows, cols);
             }
             else if (rows != cols) {
                 System.out.println("La matriz ingresada no es cuadrada, se restringen las operaciones.");
+                nonSquare(rows, cols);
             }
+        }
+    }
+
+
+    public static void Square(int rows, int cols) {
+        Scanner scanner = new Scanner(System.in);
+        //Selector general
+        int oper = 0;
+
+        System.out.println("Seleccione la operacion que desea realizar:");
+        System.out.println("1: Multiplicacion por escalar");
+        System.out.println("2: Producto entre matrices");
+        System.out.println("3: Suma");
+        System.out.println("4: Resta");
+        System.out.println("5: Inversa");
+        try {
+            oper = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.err.println("Error: ingrese un tipo valido");
+        }
+
+        switch (oper) {
+            case 1:
+                scalarTimes(rows, cols);
+                break;
+            case 2:
+                matrixTimes(rows, cols);
+                break;
+            case 3:
+                add(rows, cols);
+                break;
+            case 4:
+                subtract(rows, cols);
+                break;
+            case 5:
+                if (rows == 3) {
+                    inversa3x3();
+                }
+                else {
+                    inversa2x2();
+                }
+                break;
+            default:
+                System.out.println("No se ha ingresado una opcion valida.");
+        }
+
+    }
+
+    public static void nonSquare(int rows, int cols) {
+        Scanner scanner = new Scanner(System.in);
+        int oper = 0;
+        System.out.println("Seleccione la operacion que desea realizar:");
+        System.out.println("1: Multiplicacion por escalar");
+        System.out.println("2: Producto entre matrices");
+        System.out.println("3: Suma");
+        System.out.println("4: Resta");
+
+        oper = scanner.nextInt();
+
+        switch (oper) {
+            case 1:
+                scalarTimes(rows, cols);
+                break;
+            case 2:
+                matrixTimes(rows, cols);
+                break;
+            case 3:
+                add(rows, cols);
+                break;
+            case 4:
+                subtract(rows, cols);
+                break;
+            default:
+                cout << "No se ha ingresado una opcion valida.";
         }
     }
 }
