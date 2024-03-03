@@ -29,7 +29,7 @@ class CalcMain {
         if (exe == 1) {
             EquationSystem.main(new String[0]);
         } else {
-            MatrixFunctions.main(new String[0]);
+            FunctionsSelector.main(new String[0]);
         }
     }
 }
