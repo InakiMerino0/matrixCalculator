@@ -27,10 +27,14 @@ public class FunctionsSelector {
                 System.out.println("La matriz ingresada es cuadrada");
                 Square(rows, cols);
             }
-            else if (rows != cols) {
+            else {
                 System.out.println("La matriz ingresada no es cuadrada, se restringen las operaciones.");
-                nonSquare(rows, cols);
+                NonSquare(rows, cols);
             }
+        } else {
+            System.out.println("Alguno de los datos ingresados sobrepasa el alcance de la calculadora");
+            main(args);
+            System.exit(0);
         }
     }
 
@@ -50,6 +54,8 @@ public class FunctionsSelector {
             oper = scanner.nextInt();
         } catch (InputMismatchException e) {
             System.err.println("Error: ingrese un tipo valido");
+            Square(rows, cols);
+            System.exit(0);
         }
 
         switch (oper) {
@@ -79,7 +85,7 @@ public class FunctionsSelector {
 
     }
 
-    public static void nonSquare(int rows, int cols) {
+    public static void NonSquare(int rows, int cols) {
         Scanner scanner = new Scanner(System.in);
         int oper = 0;
         System.out.println("Seleccione la operacion que desea realizar:");
@@ -88,7 +94,13 @@ public class FunctionsSelector {
         System.out.println("3: Suma");
         System.out.println("4: Resta");
 
-        oper = scanner.nextInt();
+        try {
+            oper = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            System.err.println("Error: ingrese un tipo valido");
+            NonSquare(rows, cols);
+            System.exit(0);
+        }
 
         switch (oper) {
             case 1:

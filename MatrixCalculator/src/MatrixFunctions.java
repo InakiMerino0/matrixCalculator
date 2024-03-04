@@ -10,6 +10,7 @@ public class MatrixFunctions {
         System.out.println("Ingrese la matriz 1");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix1[i][j] = tryCatch(i,j);
             }
         }
@@ -25,8 +26,9 @@ public class MatrixFunctions {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 result[i][j] = matrix1[i][j] + matrix2[i][j];
-                System.out.println(result[i][j] + " ");
+                System.out.print(result[i][j] + " ");
             }
+            System.out.println(" ");
         }
     }
 
@@ -38,6 +40,7 @@ public class MatrixFunctions {
         System.out.println("Ingrese la matriz 1");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix1[i][j] = tryCatch(i,j);
             }
         }
@@ -53,8 +56,9 @@ public class MatrixFunctions {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 result[i][j] = matrix1[i][j] - matrix2[i][j];
-                System.out.println(result[i][j] + " ");
+                System.out.print(result[i][j] + " ");
             }
+            System.out.print(" ");
         }
     }
 
@@ -65,14 +69,15 @@ public class MatrixFunctions {
         float[][] result = new float[rows][cols];
         float k = 0;
 
-        System.out.println("Ingrese la matriz");
+        System.out.println("Ingrese la matriz " + rows + "x" + cols + " a multiplicar por escalar");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix[i][j] = tryCatch(i,j);
             }
         }
 
-        System.out.println("Ingrese el escalar por el que desea multiplicar la matrix.");
+        System.out.println("Ingrese el escalar por el que desea multiplicar la matriz.");
         try {
             k = scanner.nextFloat();
         } catch (InputMismatchException e) {
@@ -80,12 +85,13 @@ public class MatrixFunctions {
             System.exit(1);
         }
 
-        //operacion
+        //operacion y printeo
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 result[i][j] = matrix[i][j] * k;
-                System.out.println(result[i][j] + " ");
+                System.out.print(result[i][j] + " ");
             }
+            System.out.println(" ");
         }
     }
 
@@ -100,6 +106,7 @@ public class MatrixFunctions {
         System.out.println("Ingrese la matriz 1, del orden dado");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix1[i][j] = tryCatch(i,j);
             }
         }
@@ -119,6 +126,7 @@ public class MatrixFunctions {
         System.out.println("Ingrese la matriz 2");
         for (int i = 0; i < cols; i++) {
             for (int j = 0; j < cols2; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix2[i][j] = tryCatch(i,j);
             }
         }
@@ -160,6 +168,7 @@ public class MatrixFunctions {
         System.out.println("Ingrese la matriz 3x3 de la cual quiere conocer su inversa.");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix[i][j] = tryCatch(i,j);
             }
         }
@@ -168,8 +177,8 @@ public class MatrixFunctions {
         determinante = ((matrix[0][0] * matrix[1][1] * matrix[2][2]) + (matrix[1][0] * matrix[2][1] * matrix[0][2]) + (matrix[2][0] * matrix[0][1] * matrix[1][2])) - ((matrix[0][2] * matrix[1][1] * matrix[2][0]) + (matrix[1][2] * matrix[2][1] * matrix[0][0]) + (matrix[2][2] * matrix[0][1] * matrix[1][0]));
 
         //traspuesta
-        for (int i = 0; i <= 2; i++) {
-            for (int j = 0; j <= 2; j++) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 tras[j][i] = matrix[i][j];
             }
         }
@@ -215,6 +224,7 @@ public class MatrixFunctions {
         System.out.println("Ingrese la matriz 2x2 de la cual quiere conocer su inversa:");
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
                 matrix[i][j] = tryCatch(i,j);
             }
         }
@@ -228,8 +238,8 @@ public class MatrixFunctions {
         System.out.println("la inversa es:");
         if (determinante != 0) {
             //traspuesta
-            for (int i = 0; i <= 1; i++) {
-                for (int j = 0; j <= 1; j++) {
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
                     tras[j][i] = matrix[i][j];
                 }
             }

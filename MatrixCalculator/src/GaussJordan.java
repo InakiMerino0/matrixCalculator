@@ -13,11 +13,8 @@ public class GaussJordan {
         System.out.println("Ingrese los datos de la matriz 2x3 por fila: ");
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 3; j++) {
-                try {
-                    matrix[i][j] = scanner.nextFloat();
-                } catch (InputMismatchException e) {
-                    System.err.println("Error: ingrese un tipo valido para float");
-                }
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
+                MatrixFunctions.tryCatch(i,j);
             }
         }
 
@@ -59,8 +56,9 @@ public class GaussJordan {
         System.out.println("La matriz reducida a Gauss es: ");
         for (int i = 0; i <= 1; i++) {
             for (int j = 0; j <= 2; j++) {
-                System.out.println(matrix[i][j] + "  ");;
+                System.out.print(matrix[i][j] + "  ");;
             }
+            System.out.println(" ");
         }
         System.out.println("La solucion es: x1 = " +  x1 + ", x2 = " + x2);
     }
@@ -74,11 +72,8 @@ public class GaussJordan {
         System.out.println("Ingrese la matriz 3x4 fila por fila");
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                try {
-                    matrix[i][j] = scanner.nextFloat();
-                } catch(InputMismatchException e) {
-                    System.err.println("Error: ingrese un tipo valido para float");
-                }
+                System.out.println("Ingrese el numero con los subindices: " + (i + 1) + " " + (j + 1));
+                MatrixFunctions.tryCatch(i,j);
             }
         }
 
@@ -157,8 +152,9 @@ public class GaussJordan {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 4; j++) {
-                System.out.println(matrix[i][j] + " ");;
+                System.out.print(matrix[i][j] + " ");;
             }
+            System.out.println(" ");
         }
 
         System.out.println("La solucion es: " + " x1 = " + x1 + ", x2 = " + x2 + ", x3 = " + x3);
